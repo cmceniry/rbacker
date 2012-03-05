@@ -5,3 +5,7 @@ p
   a(href='/roles') Back
 a
   a(href='/roles/'+role.id+'/edit') Edit
+form(action='/roles/'+role.id, method='POST')
+  input(type='hidden', name='_method', value='DELETE')
+  input(type='submit', name='DELETE', value='DELETE')
+

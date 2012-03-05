@@ -75,6 +75,19 @@ app.put('/roles/:id', function(req,res) {
     res.redirect('/roles/' + req.params.id);
   });
 });
+app.delete('/roles/:id', function(req,res) {
+  Role.findById(req.params.id, function(err, role) {
+    if (err) {
+      throw err;
+    };
+    role.remove(function(err) {
+      if (err) {
+        throw err;
+      };
+      res.redirect('/roles');
+    });
+  });
+});
 
 app.listen(3000);
 
